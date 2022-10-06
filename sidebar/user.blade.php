@@ -5,7 +5,10 @@
                 @php
                     $user = Auth::user();
                 @endphp
-                <img src="/mypage/photo/{{$user->id}}" class="avatar img-fluid rounded me-1">
+
+                @if($image = isAvataImage($user->id))
+                <img src="/mypage/{{$image}}" class="avatar img-fluid rounded me-1">
+                @endif
             </div>
             <div class="flex-grow-1 ps-2">
                 <a class="sidebar-user-title dropdown-toggle text-white text-decoration-none" href="#" data-bs-toggle="dropdown" aria-expanded="false">

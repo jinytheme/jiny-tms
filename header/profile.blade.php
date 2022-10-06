@@ -171,9 +171,11 @@
         <li class="nav-item dropdown">
             <a class="nav-icon pe-md-0 dropdown-toggle" href="#" data-bs-toggle="dropdown">
                 @php
-                $uid = Auth::user()->id;
+                    $uid = Auth::user()->id;
                 @endphp
-                <img src="/mypage/photo/{{$uid}}" class="avatar img-fluid rounded" >
+                @if($image = isAvataImage($uid))
+                <img src="/mypage/{{$image}}" class="avatar img-fluid rounded" >
+                @endif
             </a>
             <div class="dropdown-menu dropdown-menu-end">
                 <a class="dropdown-item" href="/jiny/tms/mypage">
